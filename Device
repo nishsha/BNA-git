@@ -3,7 +3,7 @@
 <name key="customAction.get.SystemSerialNumber"/>
 <id>2007</id>
 <guid>7C34F790-C77A-37E1-BBCF-DD5644F70F62</guid>
-<groupName key="customAction.groupName.hardware"/>
+<groupName key="on.groupName.hardware"/>
 <description>Gets the system serial number of the device.</description>
 <browserExecutable>true</browserExecutable>
 <inspectionOnly>true</inspectionOnly>
