@@ -1,0 +1,119 @@
+
+<!-- Get System Serial Number -->
+<name key="customAction.get.SystemSerialNumber"/>
+<id>2007</id>
+<guid>7C34F790-C77A-37E1-BBCF-DD5644F70F62</guid>
+<groupName key="customAction.groupName.hardware"/>
+<description>Gets the system serial number of the device.</description>
+<browserExecutable>true</browserExecutable>
+<inspectionOnly>true</inspectionOnly>
+<classification>1</classification>
+<!-- uncomment this block to capture value to "Serial Number" dynamic field <dynamicField> <name>Serial Number</name> <sourceResult>result.pbid</sourceResult> </dynamicField> -->
+</customDeviceCommandDeclaration>
+-<customDeviceCommandDeclaration>
+<!-- Ping -->
+<name key="customAction.Ping"/>
+<id>2008</id>
+<guid>8B6ED683-C883-0AE4-DC3E-860C674A772B</guid>
+<groupName key="customAction.groupName.diagnostics"/>
+<description>Pings from the device to the IP address entered at runtime.</description>
+-<generalInfo>
+<![CDATA[ <ul class="noSpacing"> <li> Devices that support multiple instances of virtual routing and forwarding (VRF) do not transmit ping or traceroute diagnostic commands over the management VRF. </li> </ul> ]]>
+</generalInfo>
+<browserExecutable>true</browserExecutable>
+<inspectionOnly>true</inspectionOnly>
+<classification>3</classification>
+-<runtimeParameters>
+-<runtimeParameter>
+<name>node</name>
+<prompt key="customAction.runtimeParameter.nodeIPAddress"/>
+type>text</type>
+<required>true</required>
+<mask>((\A(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}\z))|(::|(([a-fA-F0-9]{1,4}):){7}(([a-fA-F0-9]{1,4}))|(:(:([a-fA-F0-9]{1,4})){1,6})|((([a-fA-F0-9]{1,4}):){1,6}:)|((([a-fA-F0-9]{1,4}):)(:([a-fA-F0-9]{1,4})){1,6})|((([a-fA-F0-9]{1,4}):){2}(:([a-fA-F0-9]{1,4})){1,5})|((([a-fA-F0-9]{1,4}):){3}(:([a-fA-F0-9]{1,4})){1,4})|((([a-fA-F0-9]{1,4}):){4}(:([a-fA-F0-9]{1,4})){1,3})|((([a-fA-F0-9]{1,4}):){5}(:([a-fA-F0-9]{1,4})){1,2}))</mask>
+</runtimeParameter>
+</runtimeParameters>
+</customDeviceCommandDeclaration>
+-<customDeviceCommandDeclaration>
+<!-- IOS Extended Ping -->
+<name key="customAction.IOS.extendedPing"/>
+<id>2017</id>
+<guid>FD662346-6B80-A169-4BD3-D86899FFCEF8</guid>
+<groupName key="customAction.groupName.diagnostics"/>
+<description>Pings from the device to the IP address entered at runtime with extended runtime parameters of Repeat Count, Datagram Size, and Timeout.</description>
+<browserExecutable>true</browserExecutable>
+<inspectionOnly>true</inspectionOnly>
+<classification>3</classification>
+-<runtimeParameters>
+-<runtimeParameter>
+<name>targetIpAddress</name>
+<prompt key="customAction.runtimeParameter.targetIPAddress"/>
+<type>text</type>
+<required>true</required>
+<sortOrder>1</sortOrder>
+<mask>((\A(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}\z))|(::|(([a-fA-F0-9]{1,4}):){7}(([a-fA-F0-9]{1,4}))|(:(:([a-fA-F0-9]{1,4})){1,6})|((([a-fA-F0-9]{1,4}):){1,6}:)|((([a-fA-F0-9]{1,4}):)(:([a-fA-F0-9]{1,4})){1,6})|((([a-fA-F0-9]{1,4}):){2}(:([a-fA-F0-9]{1,4})){1,5})|((([a-fA-F0-9]{1,4}):){3}(:([a-fA-F0-9]{1,4})){1,4})|((([a-fA-F0-9]{1,4}):){4}(:([a-fA-F0-9]{1,4})){1,3})|((([a-fA-F0-9]{1,4}):){5}(:([a-fA-F0-9]{1,4})){1,2}))</mask>
+</runtimeParameter>
+
+<runtimeParameter>
+<name>repeatCount</name>
+<prompt key="customAction.runtimeParameter.repeatCount"/>
+<type>integer</type>
+required>true</required>
+<sortOrder>2</sortOrder>
+<defaultValue>5</defaultValue>
+<minValue>1</minValue>
+<maxValue>2147483647</maxValue>
+/runtimeParameter>
+<runtimeParameter>
+<name>datagramSize</name>
+<prompt key="customAction.runtimeParameter.datagramSize"/>
+<type>integer</type>
+<required>true</required>
+<sortOrder>3</sortOrder>
+<defaultValue>100</defaultValue>
+<minValue>36</minValue>
+<maxValue>18024</maxValue>
+</runtimeParameter>
+<runtimeParameter>
+<name>timeout</name>
+<prompt key="customAction.runtimeParameter.timeout"/>
+<type>integer</type>
+<required>true</required>
+<sortOrder>4</sortOrder>
+<defaultValue>2</defaultValue>
+<minValue>0</minValue>
+<maxValue>3600</maxValue>
+</runtimeParameter>
+</runtimeParameters>
+</customDeviceCommandDeclaration>
+<customDeviceCommandDeclaration>
+<!-- Traceroute -->
+<name key="customAction.TraceRoute"/>
+<id>2021</id>
+<guid>FFD910EC-60F7-2434-BADC-627EB0F1B7EA</guid>
+<groupName key="customAction.groupName.diagnostics"/>
+<description>Performs a traceroute from the device to the entered IP address.</description>
+<generalInfo>
+<![CDATA[ <ul class="noSpacing"> <li> Devices that support multiple instances of virtual routing and forwarding (VRF) do not transmit ping or traceroute diagnostic commands over the management VRF. </li> </ul> ]]>
+</generalInfo>
+<browserExecutable>true</browserExecutable>
+<inspectionOnly>true</inspectionOnly>
+<classification>3</classification>
+<runtimeParameters>
+<runtimeParameter>
+<name>node</name>
+<prompt key="customAction.runtimeParameter.destinationNodeIPAddress"/>
+<type>text</type>
+<required>true</required>
+<mask>((\A(25[0-5]|2[0-4]\d|[0-1]?\d?\d)(\.(25[0-5]|2[0-4]\d|[0-1]?\d?\d)){3}\z))|(::|(([a-fA-F0-9]{1,4}):){7}(([a-fA-F0-9]{1,4}))|(:(:([a-fA-F0-9]{1,4})){1,6})|((([a-fA-F0-9]{1,4}):){1,6}:)|((([a-fA-F0-9]{1,4}):)(:([a-fA-F0-9]{1,4})){1,6})|((([a-fA-F0-9]{1,4}):){2}(:([a-fA-F0-9]{1,4})){1,5})|((([a-fA-F0-9]{1,4}):){3}(:([a-fA-F0-9]{1,4})){1,4})|((([a-fA-F0-9]{1,4}):){4}(:([a-fA-F0-9]{1,4})){1,3})|((([a-fA-F0-9]{1,4}):){5}(:([a-fA-F0-9]{1,4})){1,2}))</mask>
+</runtimeParameter>
+</runtimeParameters>
+</customDeviceCommandDeclaration>
+<customDeviceCommandDeclaration>
+<!-- Get Device UDI -->
+<name key="customAction.get.device.udi"/>
+<guid>0046208B-37D8-4C24-9385-E1F126FD85CC</guid>
+<groupName key="customAction.groupName.licensing"/>
+<description>Gets the udi of the device.</description>
+<generalInfo>
+<![CDATA[ <ul class="noSpacing"> <li> Licensing on some devices requires UDI, for those device we need to get UDI first. </li> </ul> ]]>
+</generalInfo>
